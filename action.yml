@@ -7,11 +7,11 @@ branding:
 
 inputs:
   dockerName:
+    description: "package name on docker registry"
     required: true
-    type: string
 
 runs:
-	using: 'composite'
+    using: 'composite'
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2

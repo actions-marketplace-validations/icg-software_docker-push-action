@@ -1,4 +1,5 @@
-name: Publish Docker image to ghcr.io
+name: publish docker image to ghcr.io
+description: Publish Docker image to ghcr.io
 
 on:
   workflow_call:

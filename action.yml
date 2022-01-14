@@ -1,7 +1,9 @@
 name: publish docker image to ghcr.io
 description: Publish Docker image to ghcr.io
-icon: box
-color: purple
+author: 'icg-software'
+branding:
+  icon: 'box'
+  color: 'purple'
 
 on:
   workflow_call:

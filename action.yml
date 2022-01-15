@@ -52,8 +52,7 @@ runs:
           TAG_NAME: ${{ steps.meta.outputs.tags }}
         with:
          script: |
-           const { TAG_NAME } = process.env
-           const tag = $TAG_NAME
+           const tag = TAG_NAME
            const no_v = tag.replace('v', '')
            core.setOutput('tag', tag)
            core.setOutput('no-v', no_v)

@@ -52,7 +52,7 @@ runs:
           TAG_NAME: ${{ steps.meta.outputs.tags }}
         with:
          script: |
-           const tag = ${TAG_NAME}
+           const tag = $TAG_NAME
            const no_v = tag.replace('v', '')
            const dash_index = no_v.lastIndexOf('-')
            core.setOutput('tag', tag)

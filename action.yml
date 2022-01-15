@@ -48,9 +48,11 @@ runs:
       - name: Set Versions
         uses: actions/github-script@v4
         id: set_version
+        env:
+          TAG_NAME: ${{ steps.meta.outputs.tags }}
         with:
          script: |
-           const tag = steps.meta.outputs.tags
+           const tag = ${TAG_NAME}
            const no_v = tag.replace('v', '')
            const dash_index = no_v.lastIndexOf('-')
            core.setOutput('tag', tag)

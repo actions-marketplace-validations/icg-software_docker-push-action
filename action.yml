@@ -44,24 +44,13 @@ runs:
         with:
           images: |
             ghcr.io/${{ inputs.repoOwner }}/${{ inputs.dockerName }}
-
-      - name: Set Versions
-        uses: actions/github-script@v4
-        id: set_version
-        env:
-          TAG_NAME: ${{ steps.meta.outputs.tags }}
-        with:
-         script: |
-           const { TAG_NAME } = process.env
-           const tag = process.env.TAG_NAME
-           const no_v = tag.replace('v', '')
-           core.setOutput('tag', tag)
-           core.setOutput('no-v', no_v)
+          tags: |
+            type=semver,pattern={{version}}
       
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: ${{ steps.set_version.outputs.no-v }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

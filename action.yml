@@ -54,7 +54,6 @@ runs:
          script: |
            const tag = $TAG_NAME
            const no_v = tag.replace('v', '')
-           const dash_index = no_v.lastIndexOf('-')
            core.setOutput('tag', tag)
            core.setOutput('no-v', no_v)
       
